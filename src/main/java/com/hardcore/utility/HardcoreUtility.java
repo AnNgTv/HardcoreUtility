@@ -54,7 +54,7 @@ public class HardcoreUtility implements ModInitializer {
 
             // Logic: NoFall
             if (noFall && client.player.fallDistance > 2.0f) {
-                client.player.networkHandler.sendPacket(new net.minecraft.network.packet.c2s.play.PlayerMoveC2SPacket.OnGroundOnly(true));
+                client.player.networkHandler.sendPacket(new net.minecraft.network.packet.c2s.play.PlayerMoveC2SPacket(true));
                 client.player.fallDistance = 0;
             }
 
@@ -79,8 +79,8 @@ public class HardcoreUtility implements ModInitializer {
             if (spider && client.player.horizontalCollision) {
                 client.player.setVelocity(client.player.getVelocity().x, 0.2, client.player.getVelocity().z);
             }
-            client.player.getAbilities().allowFlying = flight;
-            if (!flight && !client.player.isCreative()) client.player.getAbilities().flying = false;
+            client.player.abilities.allowFlying = flight;
+            if (!flight && !client.player.isCreative()) client.player.abilities.flying = false;
             if (killAura && client.player.age % 2 == 0) {
                 for (net.minecraft.entity.Entity e : client.world.getEntities()) {
                     if (e instanceof net.minecraft.entity.mob.HostileEntity && e.isAlive() && client.player.distanceTo(e) < 4.5) {
