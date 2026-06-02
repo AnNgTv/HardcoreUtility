@@ -2,8 +2,8 @@ plugins {
     id 'fabric-loom' version '0.10-SNAPSHOT'
 }
 
-sourceCompatibility = JavaVersion.VERSION_1.8
-targetCompatibility = JavaVersion.VERSION_1.8
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
 
 archivesBaseName = "hardcoreutility"
 version = "1.0.0"
